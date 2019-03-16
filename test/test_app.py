@@ -30,8 +30,12 @@ def main():
 		loads.append(processes[i].load)
 
 	plt.plot(loads)
+	plt.xlim(0, number_processes - 1)
 	plt.ylim(bottom=0, top=1.1*max_load)
 	plt.axhline(y=mean_load, linestyle='--', color='red', linewidth=1)
+	plt.xlabel('Process Number [-]')
+	plt.ylabel('Load Factor [-]')
+	plt.text(0.3*len(loads), 0.5*max_load, "Mean Load Factor = " + str(mean_load))
 	plt.show()
 
 if __name__ == '__main__':
