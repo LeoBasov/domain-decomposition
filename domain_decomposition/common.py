@@ -1,13 +1,15 @@
 """Module containing elements used by other submdules
 """
 
-class Element():
+class Element:
 	"""Class representing an element for spatial discitization
 
 	Attributes
 	----------
 	_load_factor : double
 		property discribing the computational cost of the element
+
+		This property must be 0 or bigger
 
 	"""
 
@@ -25,3 +27,11 @@ class Element():
 
 		self._load_factor = value
 	
+class Process:
+	def __init__(self):
+		self.load = 0
+		self.elements = []
+
+	def add_element(self, element):
+		self.load += element.load_factor
+		self.elements.append(element)
